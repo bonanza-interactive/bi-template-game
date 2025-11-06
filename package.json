@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "pixi.js": "^7.2.4",
-    "wrapper-lib": "file:./../bi-wrapper-react"
+    "@bi/wrapper": "file:./../bi-wrapper-react"
   },
   "devDependencies": {
     "typescript": "^5.3.3",
