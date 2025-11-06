@@ -22,7 +22,10 @@ module.exports = {
     })
   ],
   devServer: {
-    static: "./dist",
+    static: [
+      path.resolve(__dirname, "public"),
+      path.resolve(__dirname, "dist")
+    ],
     port: 4001
   }
 };

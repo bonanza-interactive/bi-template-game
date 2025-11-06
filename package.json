@@ -6,15 +6,15 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "pixi.js": "^7.2.4",
-    "@bi/wrapper": "file:./../bi-wrapper-react"
+    "@bi/wrapper": "file:./../bi-wrapper-react",
+    "pixi.js": "^7.2.4"
   },
   "devDependencies": {
-    "typescript": "^5.3.3",
+    "html-webpack-plugin": "^5.5.3",
     "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
-    "html-webpack-plugin": "^5.5.3"
+    "webpack-dev-server": "^5.2.2"
   }
 }
