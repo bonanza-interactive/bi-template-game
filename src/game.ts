@@ -218,7 +218,9 @@ export class Game {
         this.appendLine('data => ' + JSON.stringify(data) );
 
         await this.delay(1500);
-        bi.casino.channel.publish(bi.channel.gameReady);
+        bi.casino.channel.publish(bi.channel.gameReady, {
+            gameTitle: "Template Game"
+        });
         this.appendLine(bi.channel.gameReady);
         await this.delay(1500);
         bi.casino.channel.publish(bi.channel.gameLoaded);
