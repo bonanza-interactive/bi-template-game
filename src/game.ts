@@ -1,5 +1,4 @@
-import * as PIXI from "pixi.js";
-import { Application } from "pixi.js";
+import { Application, Sprite, Graphics, Text, Container, Texture } from "pixi.js";
 // Bind at runtime from wrapper's global
 let bi: any;
 
@@ -18,8 +17,8 @@ export class Game {
     private width: number = 0;
     private height: number = 0;
 
-    private logText?: PIXI.Text;
-    private logField?: PIXI.Container;
+    private logText?: Text;
+    private logField?: Container;
 
     constructor(container: HTMLElement, initialSize: IInitialSize) {
         if (typeof window === 'undefined' || !(window as any).bi) {
@@ -127,7 +126,7 @@ export class Game {
             "#000fff"
         );
 
-        const gradientBackground = new PIXI.Sprite(gradientTexture);
+        const gradientBackground = new Sprite(gradientTexture);
         gradientBackground.name = "background";
         gradientBackground.x = 0;
         gradientBackground.y = 0;
@@ -141,11 +140,11 @@ export class Game {
         const fieldHeight = this.height;
         const padding = 10;
 
-        const logField = new PIXI.Container();
+        const logField = new Container();
         logField.x = fieldWidth / 2;
         logField.y = this.height / 2;
 
-        const logBg = new PIXI.Graphics();
+        const logBg = new Graphics();
         logBg.drawRoundedRect(
             -fieldWidth / 2,
             -fieldHeight / 2,
@@ -156,7 +155,7 @@ export class Game {
         logBg.endFill();
         logField.addChild(logBg);
 
-        const logText = new PIXI.Text("Logger", {
+        const logText = new Text("Logger", {
             fontSize: 20,
             fill: 0x000000,
             align: "left",
@@ -185,7 +184,7 @@ export class Game {
         this.logField.y = this.height / 2;
 
         // Redraw the background with new dimensions
-        const logBg = this.logField.children[0] as PIXI.Graphics;
+        const logBg = this.logField.children[0] as Graphics;
         logBg.clear();
         // logBg.beginFill(0xffffff, 0.09);
         logBg.drawRoundedRect(
@@ -392,7 +391,7 @@ function createGradientTexture(width: number, height: number, color1: string, co
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    return PIXI.Texture.from(canvas);
+    return Texture.from(canvas);
 }
 
 if (typeof window !== 'undefined') {
