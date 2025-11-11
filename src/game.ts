@@ -222,7 +222,7 @@ export class Game {
         });
         this.appendLine(bi.channel.gameReady);
         await this.delay(1500);
-        bi.casino.channel.publish(bi.channel.gameLoaded);
+        bi.casino.channel.publish(bi.channel.gameLoaded, gameLoaded);
         this.appendLine(bi.channel.gameLoaded);
     };
 
@@ -397,4 +397,36 @@ function createGradientTexture(width: number, height: number, color1: string, co
 if (typeof window !== 'undefined') {
   (window as any).bi = (window as any).bi || {};
   (window as any).bi.game = Game;
+}
+
+const getFeatureBuyItems = [
+    {
+        bonusGameId: 'buybonus',
+        name: 'fs_title_uc',
+        description: 'free_spins_desc',
+        volatility: 'low',
+        image: 'gameinfoassets/freespins.png',
+    },
+    {
+        bonusGameId: 'buybonus',
+        name: 'bonushunt_featurespins_uc',
+        description: 'bonushunt_featurespins_desc',
+        volatility: 'low',
+        image: 'gameinfoassets/mod_bonus.png',
+    },
+    {
+        bonusGameId: 'buybonus',
+        name: 'bonushunt_featurespins_uc',
+        description: 'bonushunt_featurespins_desc',
+        volatility: 'low',
+        image: 'gameinfoassets/mod_bonus.png',
+    },
+];
+
+const gameLoaded = {
+    gameRoundDelays: 3,
+    uiCustomSettings: [
+        { type: 'SuperTurbo', settings: { available: true } },
+        { type: 'FeatureBuy', settings: { items: getFeatureBuyItems } },
+    ],
 }
